@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { FaFacebookF, FaYoutube, FaLinkedinIn } from "react-icons/fa";
 
 function Page() {
   return (
@@ -23,15 +24,18 @@ function Page() {
         </div>
 
         <div className="mt-5 flex items-center gap-5">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/40 text-xs font-semibold text-slate-100 shadow-sm">
-            F
-          </span>
-          <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/40 text-xs font-semibold text-slate-100 shadow-sm">
-            YT
-          </span>
-          <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/40 text-xs font-semibold text-slate-100 shadow-sm">
-            IN
-          </span>
+          {[{ name: "Facebook", icon: FaFacebookF }, { name: "YouTube", icon: FaYoutube }, { name: "LinkedIn", icon: FaLinkedinIn }].map(
+            ({ name, icon: Icon }) => (
+              <a
+                key={name}
+                href="#"
+                aria-label={name}
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/40 text-xs font-semibold text-slate-100 shadow-sm transition hover:border-white hover:bg-white/10"
+              >
+                <Icon className="h-4 w-4" />
+              </a>
+            )
+          )}
         </div>
 
         <div className="mt-8 inline-flex h-36 w-36 items-center justify-center rounded-full border-4 border-white/80 bg-white/10">
