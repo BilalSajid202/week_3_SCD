@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { FaFacebookF, FaYoutube, FaLinkedinIn } from "react-icons/fa";
+import { FaAsterisk } from "react-icons/fa";
 
 function Page() {
   return (
@@ -55,7 +56,7 @@ function Page() {
         <div className="mx-auto max-w-6xl">
           <div>
             <h2 className="text-xl font-bold text-slate-100">Services I Offer</h2>
-            <p className="mt-3 max-w-4xl text-sm leading-relaxed text-slate-300">
+            <p className="mt-3   text-slate-300">
               Legendary assassin John Wick (Keanu Reeves) retired from his violent career after marrying the love of his
               life. Her sudden death leaves John in deep mourning. When sadistic mobster Iosef Tarasov (Alfie Allen) and
               his thugs steal John's prized car and kill the puppy that was a last gift from his wife, John unleashes the
@@ -67,39 +68,42 @@ function Page() {
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {[
               {
-                icon: "*",
+                icon: FaAsterisk,
                 title: "Dummy Text",
                 body:
                   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti suscipit iure corporis temporibus ipsa exercitationem nesciunt impedit modi, est quae harum eaque cumque provident sit maiores enim corrupti aspernatur dolores.",
                 footer: "Dummy text",
               },
               {
-                icon: "+",
+                icon: FaAsterisk,
                 title: "Dummy Text",
                 body:
                   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti suscipit iure corporis temporibus ipsa exercitationem nesciunt impedit modi, est quae harum eaque cumque provident sit maiores enim corrupti aspernatur dolores.",
                 footer: "Dummy text",
               },
               {
-                icon: "#",
+                icon: FaAsterisk,
                 title: "Dummy Text",
                 body:
                   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti suscipit iure corporis temporibus ipsa exercitationem nesciunt impedit modi, est quae harum eaque cumque provident sit maiores enim corrupti aspernatur dolores.",
                 footer: "Dummy text",
               },
-            ].map(({ icon, title, body, footer }) => (
+            ].map(({ icon, title, body, footer }, idx) => {
+              const Icon = typeof icon === "string" ? null : icon;
+              return (
               <div
-                key={title + icon}
+                key={`${title}-${idx}`}
                 className="flex h-full flex-col gap-4 rounded-2xl bg-[#f3f4f6] px-6 py-6 text-center text-[#0f172a] shadow-lg"
               >
                 <div className="text-4xl" aria-hidden>
-                  {icon}
+                  {Icon ? <Icon className="inline" /> : icon}
                 </div>
                 <h3 className="text-base font-bold">{title}</h3>
                 <p className="text-sm leading-relaxed text-slate-700">{body}</p>
                 <div className="pt-2 text-sm font-semibold text-slate-800">{footer}</div>
               </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Image Gallery */}
