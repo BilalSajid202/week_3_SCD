@@ -1,65 +1,107 @@
+import React from "react";
 import Image from "next/image";
 
-export default function Home() {
+function Page() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="min-h-screen bg-[#050b27] text-white">
+      {/* Top bar */}
+      <header className="flex items-center justify-between px-8 py-6 text-sm tracking-[0.25em] uppercase">
+        <span className="font-semibold text-slate-100">Next JS</span>
+        <button className="rounded-full bg-sky-400 px-6 py-2 text-xs font-semibold text-[#050b27] shadow-sm transition hover:bg-sky-300">
+          Cv
+        </button>
+      </header>
+
+      {/* Hero */}
+      <main className="flex flex-col items-center px-6 pb-16 text-center">
+        <div className="mt-6">
+          <h1 className="text-4xl font-bold text-slate-100 sm:text-5xl">John Wick</h1>
+          <p className="mt-2 text-lg font-semibold text-slate-200">Actor and Artist</p>
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-slate-300">
+            John Wick is a 2014 American neo-noir action thriller film directed by Chad Stahelski (in his directorial
+            debut) from a screenplay by Derek Kolstad.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="mt-5 flex items-center gap-5">
+          {["F", "IG", "YT", "IN"].map((label) => (
+            <span
+              key={label}
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/40 text-xs font-semibold text-slate-100 shadow-sm"
+              aria-label={label}
+            >
+              {label}
+            </span>
+          ))}
+        </div>
+
+        <div className="mt-8 inline-flex h-36 w-36 items-center justify-center rounded-full border-4 border-white/80 bg-white/10">
+          <Image
+            src="/download.jpg"
+            alt="John Wick portrait"
+            width={144}
+            height={144}
+            priority
+            className="h-32 w-32 rounded-full object-cover"
+          />
         </div>
       </main>
+
+      {/* Services */}
+      <section className="border-t border-white/20 bg-[#040820] px-6 py-12 sm:px-12">
+        <div className="mx-auto max-w-6xl">
+          <div>
+            <h2 className="text-xl font-bold text-slate-100">Services I Offer</h2>
+            <p className="mt-3 max-w-4xl text-sm leading-relaxed text-slate-300">
+              Legendary assassin John Wick (Keanu Reeves) retired from his violent career after marrying the love of his
+              life. Her sudden death leaves John in deep mourning. When sadistic mobster Iosef Tarasov (Alfie Allen) and
+              his thugs steal John's prized car and kill the puppy that was a last gift from his wife, John unleashes the
+              remorseless killing machine within and seeks vengeance. Meanwhile, Iosef's father (Michael Nyqvist) - John's
+              former colleague - puts a huge bounty on John's head.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                icon: "*",
+                title: "Dummy Text",
+                body:
+                  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti suscipit iure corporis temporibus ipsa exercitationem nesciunt impedit modi, est quae harum eaque cumque provident sit maiores enim corrupti aspernatur dolores.",
+                footer: "Dummy text",
+              },
+              {
+                icon: "+",
+                title: "Dummy Text",
+                body:
+                  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti suscipit iure corporis temporibus ipsa exercitationem nesciunt impedit modi, est quae harum eaque cumque provident sit maiores enim corrupti aspernatur dolores.",
+                footer: "Dummy text",
+              },
+              {
+                icon: "#",
+                title: "Dummy Text",
+                body:
+                  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti suscipit iure corporis temporibus ipsa exercitationem nesciunt impedit modi, est quae harum eaque cumque provident sit maiores enim corrupti aspernatur dolores.",
+                footer: "Dummy text",
+              },
+            ].map(({ icon, title, body, footer }) => (
+              <div
+                key={title + icon}
+                className="flex h-full flex-col gap-4 rounded-2xl bg-[#f3f4f6] px-6 py-6 text-center text-[#0f172a] shadow-lg"
+              >
+                <div className="text-4xl" aria-hidden>
+                  {icon}
+                </div>
+                <h3 className="text-base font-bold">{title}</h3>
+                <p className="text-sm leading-relaxed text-slate-700">{body}</p>
+                <div className="pt-2 text-sm font-semibold text-slate-800">{footer}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
+
+export default Page;
